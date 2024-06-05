@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-
+import Launchpad from './Launchpad';
 
 const apps = [
   { name: 'Finder', icon: 'image/icons/dock/finder.png' },
@@ -10,17 +10,29 @@ const apps = [
   { name: 'Calculator', icon: 'image/icons/dock/calculator.png' },
   { name: 'Calendar', icon: 'image/icons/dock/calendar.png' },
   { name: 'Music', icon: 'image/icons/dock/music.png' },
-  // додамо більше піктограм за бажанням
+
 ];
 
+interface DockPanelProps {
+  onLaunchpadClick: () => void;
+  onAppOpen: () => void;
+}
 
-
-const DockPanel = () => {
+const DockPanel: React.FC<DockPanelProps> = ({ onLaunchpadClick, onAppOpen }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  
+  const handleClick = (appName: string) => {
+    if (appName === 'Launchpad') {
+      onLaunchpadClick();
+    } else {
+      onAppOpen();
+    }
+  };
 
   return (
     <div
-      className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 bg-opacity-50 backdrop-blur-lg py-1 px-3 rounded-xl flex justify-center items-end transition-all  "   
+      className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 bg-opacity-40 
+      backdrop-blur-lg py-1 px-3 rounded-xl flex justify-center items-end transition-all shadow-innner "   
     >
       {apps.map((app, index) => (
         <div
@@ -28,6 +40,7 @@ const DockPanel = () => {
           className="relative group "
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
+          onClick={()=>handleClick(app.name)}///потрібно вставити
         >
           <div
             className={`flex flex-col items-center transform duration-[300ms] origin-bottom-left   ${
@@ -51,6 +64,7 @@ const DockPanel = () => {
           </div>
         </div>
       ))}
+
     </div>
   );
 };
