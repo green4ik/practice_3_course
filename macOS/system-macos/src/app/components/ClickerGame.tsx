@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, MouseEvent } from 'react';
 
 interface ClickerGameProps {
   appName: string;
@@ -9,9 +9,10 @@ interface ClickerGameProps {
 const ClickerGame: React.FC<ClickerGameProps> = ({ appName, onClose }) => {
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const [isDragging, setIsDragging] = useState(false);
+  const [score, setScore] = useState(0);
   const offset = useRef({ x: 0, y: 0 });
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     offset.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y,
@@ -32,7 +33,7 @@ const ClickerGame: React.FC<ClickerGameProps> = ({ appName, onClose }) => {
     setIsDragging(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
     return () => {
@@ -40,6 +41,10 @@ const ClickerGame: React.FC<ClickerGameProps> = ({ appName, onClose }) => {
       document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging]);
+
+  const incrementScore = () => {
+    setScore(score + 1);
+  };
 
   return (
     <div
@@ -55,18 +60,25 @@ const ClickerGame: React.FC<ClickerGameProps> = ({ appName, onClose }) => {
             onClick={onClose}
             className="w-3 h-3 bg-red-500 rounded-full flex items-center justify-center text-white"
           >
-          
           </button>
           <button className="w-3 h-3 bg-yellow-500 rounded-full"></button>
           <button className="w-3 h-3 bg-green-500 rounded-full"></button>
         </div>
-        <div className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">
+        <div className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold text-black">
           {appName}
         </div>
       </div>
       <div className="p-4">
-        {/* Content specific to {appName} can be added here */}
-        <p>Welcome to {appName}!</p>
+        <p className="text-black">Welcome to {appName}!</p>
+        <div className="flex flex-col items-center">
+          <p className="text-2xl mb-4 text-black">Score: {score}</p>
+          <button
+            onClick={incrementScore}
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+          >
+            Click me!
+          </button>
+        </div>
       </div>
     </div>
   );
