@@ -46,12 +46,13 @@ const MenuBar: React.FC<MenuBarProps> = ({ appName }) => {
   return (
     <div className="bg-white bg-opacity-50 h-8 flex items-center justify-between px-4 relative">
       <div className="flex items-center space-x-4">
-        <div className="text-black">
+        <div className="text-black cursor-pointer">
           <Image src={AppleLogo} alt="Apple Logo" width={16} height={16} />
         </div>
         <div 
-          className="text-black rounded-md font-bold relative hover:bg-opacity-25 py-1 hover:border-2 border-orange-300"
-          onMouseEnter={() => openContextMenu(appName.toLowerCase())} 
+          className="text-black rounded-md font-bold relative hover:bg-opacity-25 py-1 hover:border-2 border-orange-300 cursor-pointer"
+          onMouseEnter={() => openContextMenu(appName.toLowerCase())}
+          onMouseLeave={() => closeContextMenu()}
         >
           {appName}
           {menuType === appName.toLowerCase() && (
@@ -65,18 +66,18 @@ const MenuBar: React.FC<MenuBarProps> = ({ appName }) => {
             </div>
           )}
         </div>
-        <div className="text-black">File</div>
-        <div className="text-black">Edit</div>
-        <div className="text-black">View</div>
-        <div className="text-black">Go</div>
-        <div className="text-black">Window</div>
-        <div className="text-black">Help</div>
+        <div className="text-black cursor-pointer">File</div>
+        <div className="text-black cursor-pointer">Edit</div>
+        <div className="text-black cursor-pointer">View</div>
+        <div className="text-black cursor-pointer">Go</div>
+        <div className="text-black cursor-pointer">Window</div>
+        <div className="text-black cursor-pointer">Help</div>
       </div>
       <div className="flex items-center space-x-4">
-        <div className="text-black">
+        <div className="text-black cursor-pointer">
           <Image src={MenuLabel} alt="Menu Label" width={16} height={16} />
         </div>
-        <div className="text-black">
+        <div className="text-black cursor-pointer">
           {formatDate(currentTime)}
         </div>
       </div>
