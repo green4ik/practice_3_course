@@ -5,17 +5,22 @@ import Image from 'next/image';
 import AppleLogo from '../../app/assets/images/Apple Logo.png';
 import MenuLabel from '../../app/assets/images/Menu Label.png';
 
-const MenuBar: React.FC = () => {
+interface MenuBarProps {
+  appName: string;
+}
+
+const MenuBar: React.FC<MenuBarProps> = ({ appName }) => {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [menuType, setMenuType] = useState('');
 
-const openContextMenu = (param :string) => {
-  setMenuType(param);
-};
+  const openContextMenu = (param: string) => {
+    setMenuType(param);
+  };
 
-const closeContextMenu = () => {
-  setMenuType('');
-};
+  const closeContextMenu = () => {
+    setMenuType('');
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -46,20 +51,18 @@ const closeContextMenu = () => {
         </div>
         <div 
           className="text-black rounded-md font-bold relative hover:bg-opacity-25 py-1 hover:border-2 border-orange-300"
-          onMouseEnter={() => openContextMenu('finder')} 
-          
+          onMouseEnter={() => openContextMenu(appName.toLowerCase())} 
         >
-          Finder
-          {menuType === 'finder' && (
-           <div className="font-normal absolute left-0 top-8 bg-blue-200 text-white rounded-md shadow-lg opacity-85 w-60 flex items-center flex-col" onMouseLeave={() => closeContextMenu()}>
+          {appName}
+          {menuType === appName.toLowerCase() && (
+            <div className="font-normal absolute left-0 top-8 bg-blue-200 text-white rounded-md shadow-lg opacity-85 w-60 flex items-center flex-col" onMouseLeave={() => closeContextMenu()}>
               <div className="text-black px-4 my-1 mt-2 hover:bg-orange-400 rounded-md cursor-pointer w-52">Hide Others</div>
-              <div className="text-black px-4 my-1 hover:bg-orange-400 rounded-md cursor-pointer w-52 opacity-100 ">About Finder</div>
-              <div className="text-black px-4 my-1  hover:bg-orange-400 rounded-md cursor-pointer w-52">Preferences</div>
-              <div className="text-black px-4 my-1  hover:bg-orange-400 rounded-md cursor-pointer w-52">Empty Trash</div>
-              <div className="text-black px-4 my-1  hover:bg-orange-400 rounded-md cursor-pointer w-52">Hide Finder</div>
+              <div className="text-black px-4 my-1 hover:bg-orange-400 rounded-md cursor-pointer w-52 opacity-100 ">About {appName}</div>
+              <div className="text-black px-4 my-1 hover:bg-orange-400 rounded-md cursor-pointer w-52">Preferences</div>
+              <div className="text-black px-4 my-1 hover:bg-orange-400 rounded-md cursor-pointer w-52">Empty Trash</div>
+              <div className="text-black px-4 my-1 hover:bg-orange-400 rounded-md cursor-pointer w-52">Hide {appName}</div>
               <div className="text-black px-4 my-1 mb-2 text-gray-500 rounded-md cursor-default w-52">Show All</div>
-         </div>
-         
+            </div>
           )}
         </div>
         <div className="text-black">File</div>
