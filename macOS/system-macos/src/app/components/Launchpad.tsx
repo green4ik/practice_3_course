@@ -24,7 +24,7 @@ const apps = [
   
 ];
 
-const Launchpad: React.FC<{ onAppOpen: () => void }> = ({ onAppOpen }) => {
+const Launchpad: React.FC<{ onAppOpen: (appName: string) => void }> = ({ onAppOpen }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm.toLowerCase()));
