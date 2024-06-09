@@ -29,6 +29,8 @@ export default function MainScreen() {
   };
 
   const handleAppOpen = (appName: string) => {
+      if (openApps.some(app => app.appName === appName)) 
+        return;
     setCurrentApp(appName);
     const newApp: OpenApp = { appName, id: Date.now() };
     setOpenApps([...openApps, newApp]);

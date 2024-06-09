@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Launchpad from './Launchpad';
+import Dot from './Dot';
 
 const apps = [
   { name: 'Finder', icon: 'image/icons/dock/finder.png' },
@@ -60,6 +61,7 @@ const DockPanel: React.FC<DockPanelProps> = ({ onLaunchpadClick, onAppOpen }) =>
             {app.name}
             <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-gray-100 border-opacity-50"></div>
           </div>
+          {/* <Dot position= {{ x: 0, y: 0 }}/> */}
         </div>
       ))}
     </div>
