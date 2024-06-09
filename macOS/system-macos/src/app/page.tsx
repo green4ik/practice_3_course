@@ -42,7 +42,7 @@ export default function MainScreen() {
   };
 
   return (
-    <div className={styles.background}>
+     <div className={`${styles.background} relative overflow-hidden`}>
       <MenuBar appName={currentApp} />
       {launchpadOpen && (
         <Launchpad onAppOpen={handleAppOpen} />
