@@ -1,6 +1,7 @@
 'use client';
 import styles from "./window.module.css";
 import "./globals.css";
+import WeatherWidget from "./components/WeatherWidget";
 import MenuBar from "./components/MenuBar";
 import DockPanel from "./components/DockPanel";
 import { useState } from "react";
@@ -42,8 +43,10 @@ export default function MainScreen() {
   };
 
   return (
+
      <div className={`${styles.background} relative overflow-hidden`}>
       <MenuBar appName={currentApp} />
+      <WeatherWidget />
       {launchpadOpen && (
         <Launchpad onAppOpen={handleAppOpen} />
       )}
