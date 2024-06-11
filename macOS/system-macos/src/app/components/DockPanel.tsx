@@ -34,7 +34,7 @@ const DockPanel: React.FC<DockPanelProps> = ({ onLaunchpadClick, onAppOpen }) =>
   return (
     <div
       className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 bg-opacity-40 
-      backdrop-blur-lg py-1 px-3 rounded-xl flex justify-center items-end transition-all shadow-inner"   
+      backdrop-blur-lg py-1 px-3 rounded-xl flex justify-center items-end transition-all shadow-inner z-30"   
     >
       {apps.map((app, index) => (
         <div

@@ -35,9 +35,12 @@ const Launchpad: React.FC<{ onAppOpen: (appName: string) => void }> = ({ onAppOp
     pages.push(filteredApps.slice(i, i + 16));
 
   }
-
+  
   const handlePageClick = (pageIndex: number) => {
     setCurrentPage(pageIndex);
+  };
+  const handleAppClick = (name:string) => {
+    onAppOpen(name); 
   };
   const findApp=(n:string)=>{
       setSearchTerm(n);
@@ -45,7 +48,7 @@ const Launchpad: React.FC<{ onAppOpen: (appName: string) => void }> = ({ onAppOp
   }
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-start bg-white bg-opacity-0 backdrop-blur-lg fade-in">
+    <div className="fixed inset-0 flex flex-col items-center justify-start bg-white bg-opacity-0 backdrop-blur-lg fade-in z-20">
       <div className="search flex border border-gray my-8 rounded">
         <svg className='m-1 mr-0 text-white w-6 h-6'>
         <path className='fill-white' d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path>
@@ -60,11 +63,13 @@ const Launchpad: React.FC<{ onAppOpen: (appName: string) => void }> = ({ onAppOp
       </div>
 
       <div className="flex  overflow-x-hidden w-full justify-center">
-        <div className="w-full   flex transition-transform duration-500"  style={{ transform: `translateX(-${currentPage * 100}%)` }}>
+        <div className="w-full   flex transition-transform duration-500 "  style={{ transform: `translateX(-${currentPage * 100}%)` }}>
           {pages.map((page, pageIndex) => (
             <div key={pageIndex} className=" grid grid-cols-4 grid-rows-4 min-w-full gap-x-10 gap-y-2  place-items-center">
               {page.map(app => (
-                <IconComponent  key={app.name} name={app.name} icon={app.icon} />
+                
+                <IconComponent  key={app.name} name={app.name} icon={app.icon} onAppOpen={()=>handleAppClick(app.name)}/>
+                
               ))}
             </div>
           ))}
