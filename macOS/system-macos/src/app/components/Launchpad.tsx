@@ -21,7 +21,8 @@ const apps = [
   { name: 'Siri', icon: 'image/icons/launchpad/siri.png' },
   { name: 'Zoom', icon: 'image/icons/launchpad/zoom.png' },
   { name: 'Finder', icon: 'image/icons/dock/finder.png' },
-  
+  { name: 'ClickerGame', icon: '/image/icons/dock/1456_oooo.plus.png'},
+  { name: 'Game2048', icon: 'image/icons/dock/2048-game.png' }
 ];
 
 const Launchpad: React.FC<{ onAppOpen: (appName: string) => void }> = ({ onAppOpen }) => {

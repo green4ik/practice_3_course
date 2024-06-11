@@ -1,0 +1,26 @@
+@keyframes tile-move {
+    from {
+      transform: scale(0.90);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes tile-merge {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .tile-move {
+    animation: tile-move 0.3s ease;
+  }
+  
+  .tile-merge {
+    animation: tile-merge 0.3s ease;
+  }
+  

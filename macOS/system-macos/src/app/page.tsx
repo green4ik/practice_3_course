@@ -8,6 +8,7 @@ import { useState } from "react";
 import Launchpad from "./components/Launchpad";
 import ClickerGame from "./components/ClickerGame";
 import Calculator from "./components/Calculator";
+import Game2048 from "./components/2048Game/2048Game"
 
 interface OpenApp {
   appName: string;
@@ -16,7 +17,8 @@ interface OpenApp {
 
 const appComponents: { [key: string]: React.FC<{ onClose: () => void; id: number }> } = {
   ClickerGame,
-  Calculator
+  Calculator,
+  Game2048
   // Add other apps here
 };
 
