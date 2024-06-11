@@ -12,6 +12,7 @@ const apps = [
   { name: 'Calendar', icon: 'image/icons/dock/calendar.png' },
   { name: 'Music', icon: 'image/icons/dock/music.png' },
   { name: 'ClickerGame', icon: 'image/icons/dock/1456_oooo.plus.png' },
+  { name: 'Game2048', icon: 'image/icons/dock/2048-game.png' },
 ];
 
 interface DockPanelProps {
