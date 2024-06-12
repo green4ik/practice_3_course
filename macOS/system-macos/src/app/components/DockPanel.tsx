@@ -44,7 +44,7 @@ const DockPanel: React.FC<DockPanelProps> = ({ onLaunchpadClick, onAppOpen }) =>
           onClick={() => handleClick(app.name)}
         >
           <div
-            className={`flex flex-col items-center transform duration-[300ms] origin-bottom-left ${
+            className={`flex flex-col items-center transform duration-[300ms] transition-all origin-bottom-left ${
               hoveredIndex === index ? 'scale-[2.0] mr-16' : ''
             } ${
               hoveredIndex === index - 1 ? 'scale-150 mr-8' : ''
