@@ -16,6 +16,7 @@ import WallpaperSettingsContent from "./components/Draggable/Content/WallpaperSe
 import Item from "./components/Draggable/Sidebar/Items/Item";
 import ItemGroup from "./components/Draggable/Sidebar/Items/ItemGroup";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Game2048 from "./components/2048Game/2048Game";
 
 interface OpenApp {
   appName: string;
@@ -27,6 +28,7 @@ const appComponents: {
 } = {
   ClickerGame,
   Calculator,
+  Game2048,
   // Add other apps here
 };
 
