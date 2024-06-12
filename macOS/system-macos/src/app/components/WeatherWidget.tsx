@@ -158,7 +158,7 @@ const WeatherWidget: React.FC = () => {
 
   return (
     <Draggable>
-      <div className={`max-w-sm ${widgetSizes[size]} mx-auto p-4 ${backgroundColorClass} text-white shadow-lg rounded-lg relative`}>
+      <div className={`max-w-sm ${widgetSizes[size]} mx-auto p-4 ${backgroundColorClass} text-white shadow-lg rounded-lg relative z-30`}>
         <div className="flex justify-between items-center mb-1.5">
           <input
             type="text"
