@@ -40,7 +40,6 @@ const useDraggable = (draggableId: string) => {
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      console.log("here");
       if (!isClicked.current) {
         return;
       }

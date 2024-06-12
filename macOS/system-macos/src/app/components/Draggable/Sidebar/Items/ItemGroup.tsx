@@ -1,21 +1,17 @@
-import { FC } from "react";
-import Item from "./Item";
+import { FC, ReactNode } from "react";
 
 interface ItemGroup {
   header?: string;
-  items: Item[];
+  children: ReactNode | ReactNode[];
 }
 
-const ItemGroup: FC<ItemGroup> = ({ header, items }) => {
+const ItemGroup: FC<ItemGroup> = ({ header, children }) => {
   return (
     <div className="flex flex-col">
       <h3 className="text-neutral-300 px-1 text-3.5 font-medium leading-3.5">
         {header}
       </h3>
-      {items.length > 0 &&
-        items.map((item) => (
-          <Item key={item.iconSrc} iconSrc={item.iconSrc} title={item.title} />
-        ))}
+      {children}
     </div>
   );
 };
