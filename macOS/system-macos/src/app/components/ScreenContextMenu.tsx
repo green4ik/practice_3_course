@@ -19,7 +19,7 @@ const ScreenContextMenu: FC<ScreenContextMenuProps> = ({
 }) => {
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="absolute inset-0"></ContextMenuTrigger>
+      <ContextMenuTrigger className="absolute inset-0 z-0"></ContextMenuTrigger>
       <ContextMenuContent className="w-44 border-neutral-400/50 bg-black/30 text-neutral-200 overflow-visible backdrop-blur-3xl">
         <ContextMenuItem className="!text-3 hover:!bg-blue-500 hover:!text-neutral-200 py-0.5">
           New Folder
