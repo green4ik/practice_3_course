@@ -44,7 +44,7 @@ const MenuBar: React.FC<MenuBarProps> = ({ appName }) => {
   };
 
   return (
-    <div className="bg-white bg-opacity-50 h-8 flex items-center justify-between px-4 relative">
+    <div className="bg-white bg-opacity-50 h-8 flex items-center justify-between px-4 relative z-50">
       <div className="flex items-center space-x-4">
         <div className="text-black cursor-pointer">
           <Image src={AppleLogo} alt="Apple Logo" width={16} height={16} />

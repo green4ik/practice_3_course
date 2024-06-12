@@ -18,7 +18,7 @@ const Item: FC<Item> = ({ selectedItem, setSelectedItem, ...item }) => {
     >
       <img
         src={item.iconSrc}
-        className="w-6 h-6 rounded-3 pointer-events-none"
+        className="w-6 h-6 pointer-events-none"
         alt={item.title}
       />
       <p className="select-none text-3.5 font-normal leading-4 pointer-events-none">

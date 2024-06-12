@@ -35,6 +35,9 @@ const appComponents: {
 const contents = [
   {
     id: itemGroups[0].items[0].id,
+  },
+  {
+    id: itemGroups[1].items[0].id,
     content: (
       <>
         <WallpaperSettingsContent header="Your Photos" />
@@ -93,7 +96,7 @@ export default function MainScreen() {
   );
 
   const headerContent =
-    selectedItem?.id === itemGroups[0].items[0].id ? (
+    selectedItem?.id === itemGroups[1].items[0].id ? (
       <div className="flex flex-col">
         <div className="flex items-center gap-2 p-4">
           <IoIosArrowBack size={22} className="text-neutral-500" />
